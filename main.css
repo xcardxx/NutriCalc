@@ -1,0 +1,62 @@
+.blocopai{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 15px;
+    padding: 15px;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 15px 15px 15px 15px;
+    padding: 30px 30px 30px 30px;
+    font-size: 18px;
+    font-family: Franklin Gothic Medium;
+}
+
+.resposta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin: 15px 15px 15px 15px;
+    padding: 30px 30px 30px 30px;
+    font-size: 18px;
+    font-family: Franklin Gothic Medium;
+}
+
+.Formulario{
+    width: 180px;
+    height: 27px;
+    border-radius: 5px;
+}
+
+.campo-grupo{
+    display: flex;
+    gap: 5px;
+    padding: 15px ;
+    align-items: center;
+    justify-content: center;
+}
+
+p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botoes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 5px 5px 5px;
+    gap: 15px;
+}

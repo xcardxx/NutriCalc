@@ -1,11 +1,12 @@
 
-let botao = document.querySelector("#botao");
+let formulario = document.querySelector("#informacoes")
 
-botao.addEventListener('click', function(event){
+formulario.addEventListener('submit', function(event){
   
 
     event.preventDefault();
 
+    let nome = document.querySelector("#Nome").value;
     let altura = Number(document.querySelector("#Altura").value);
     altura = altura / 100
     let peso = Number(document.querySelector("#Peso").value);
@@ -16,37 +17,68 @@ botao.addEventListener('click', function(event){
 
 
     let valorImc = calculoIMC(peso, altura);
-    document.querySelector("#resultadoimc").innerText = valorImc.toFixed(2);
     let valorTmb = calculoTMB(peso, altura, idade, sexo);
-    document.querySelector("#resultadotmb").innerText = ("O valor da sua taxa metabolica basal é: ") +valorTmb.toFixed(2);
     let valorGetd = calculoGETD(atividade, valorTmb);
-    document.querySelector("#resultadogetd").innerText = ("O valor do seu gasto energético diario é: ") + valorGetd.toFixed(2);
     let valorAjuste = calculoAjuste(objetivo, valorGetd);
-    document.querySelector("#resultadoajuste").innerText = ("Você deve consumir a seguinte quantidade de calorias diárias: ") + valorAjuste.toFixed(2);
     let macros = calculoMacros (objetivo, valorAjuste);
-    document.querySelector("#resultadomacrop").innerText = ("A quantidade de proteinas que deve consumir é :") + macros.prot.toFixed(0);
-
+    let classificacaoImc = "";
+    
     if( valorImc < 18.5){
-        document.querySelector("#resultadoimc").innerText = ("Seu imc é: " + valorImc.toFixed(2) + " Abaixo do peso!.")
+         classificacaoImc = " Abaixo do peso.";
     } else if(valorImc > 18.4 && valorImc < 25.0){
-        document.querySelector("#resultadoimc").innerText = ("Seu imc é: " + valorImc.toFixed(2) + " Peso normal!.")
+         classificacaoImc = "Peso normal.";
     } else if(valorImc >= 25.0 && valorImc < 30){
-        document.querySelector("#resultadoimc").innerText = ("Seu imc é: " + valorImc.toFixed(2) + " Sobrepeso!.")
+        classificacaoImc = "Sobrepeso.";
     } else if( valorImc >= 30 && valorImc < 40){
-        document.querySelector("#resultadoimc").innerText = ("Seu imc é: " + valorImc.toFixed(2) + " Obesidade!.")
+         classificacaoImc = "Obesidade.";
     } else if(valorImc > 40){
-        document.querySelector("#resultadoimc").innerText = ("Seu imc é: " + valorImc.toFixed(2) + " Obesidade grave!.")
+         classificacaoImc = "Obesidade grave.";
     }
     else{
-        document.querySelector("#resultadoimc").innerText = ("Não foi possível calcular seu IMC.")
+         classificacaoImc ="Não foi possível calcular.";
     }
+
+    let textoResultado = `\  
+        ==================================================
+                 RELATÓRIO DE AVALIAÇÃO NUTRICIONAL        
+        ==================================================
+
+        [DADOS DO PACIENTE]
+        • Nome: ${nome}
+        • Idade: ${idade} anos
+        • Altura: ${altura} m
+        • Peso: ${peso} kg
+        \
+
+        [COMPOSIÇÃO CORPORAL]
+        • Índice de Massa Corporal (IMC): ${valorImc.toFixed(2)} kg/m²
+        Status/Classificação: ${classificacaoImc}
+        \
+        
+        [METABOLISMO E ENERGIA]
+        • Taxa Metabólica Basal (TMB): ....... ${valorTmb.toFixed(2)} kcal
+        • Gasto Energético Diário (GETD): .... ${valorGetd.toFixed(2)} kcal
+        \
+
+        [PLANEJAMENTO DIETÉTICO]
+        • Meta de Consumo Diário: ............ ${valorAjuste.toFixed(2)} kcal
+        • Meta de Macronutrientes:
+        - Proteínas:  ${macros.prot.toFixed(0)}g
+        - Carboidratos:  ${macros.carbo.toFixed(0)}g
+        - Gorduras:  ${macros.gord.toFixed(0)}g
+        
+        ==================================================   `;
+
+    document.querySelector("#resultadoGeral").innerText = textoResultado;
+
+    document.querySelector(".resposta").style.display = "flex";
 })
     
     
     function calculoIMC(peso, altura){
         let imc = peso / (altura * altura);
         return imc
-    }
+    }   
 
     
     function calculoTMB(peso, altura, idade, sexo){
@@ -124,4 +156,22 @@ botao.addEventListener('click', function(event){
             carbo: carboidrato,
             gord: gordura
         };
+
     }
+
+    function download(){
+        const baixar = document.getElementById("resultadoGeral");
+        setTimeout(() => {
+        html2pdf().from(baixar).set({ margin: 15 }).save();
+    }, 500);
+    }
+
+    
+        let btnLimpar = document.querySelector("#botaoreset");
+        let meuFormulario = document.querySelector("#informacoes");
+
+        btnLimpar.addEventListener('click', function() {
+            meuFormulario.reset();
+            document.querySelector(".resposta").style.display = "none";
+        })
+        

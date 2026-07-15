@@ -11,56 +11,70 @@
     <main>
         <h1 class="texttopo">Faça o cálculo do seu IMC</h1>
             <div class="blocopai">
-            <form>
+            <form id="informacoes">
                 <div class="campo-grupo">
-                    <label for="Nome">Nome</label>
-                    <input class="Formulario" id="Nome" placeholder="Digite seu nome">
-                    <label for="Altura">Idade</label>
-                    <input class="Formulario" id="Idade" placeholder="Digite sua idade">
+                    <div class="campo-individual">
+                        <label for="Nome">Nome</label>
+                        <input class="Formulario" id="Nome" placeholder="Digite seu nome" required>
+                    </div>
+                    <div class="campo-individual">
+                        <label for="Altura">Idade</label>
+                        <input class="Formulario" id="Idade" placeholder="Digite sua idade" required>
+                    </div>
                 </div>
                 
                 <div class="campo-grupo">
-                    <label for="Peso">Peso</label>
-                    <input class="Formulario"  id="Peso" placeholder="Digite seu peso em kg">
-                    <label for="Altura">Altura</label>
-                    <input class="Formulario" id="Altura" placeholder="Digite sua altura em cm">
+                    <div class="campo-individual">
+                        <label for="Peso">Peso</label>
+                        <input class="Formulario"  id="Peso" placeholder="Digite seu peso em kg" required>
+                    </div>
+                    <div class="campo-individual">
+                        <label for="Altura">Altura</label>
+                        <input class="Formulario" id="Altura" placeholder="Digite sua altura em cm" required>
+                    </div>
                 </div>
 
                 
                 <div class="campo-grupo2">
-                    <p>Sexo</p>
-                    <label for="Feminino"><input id="Feminino" name="Sexo" type="radio" value="Feminino">Feminino</label>
-                    <label for="Masculino"><input id="Masculino" name="Sexo" type="radio" value="Masculino">Masculino</label>   
+                    <label>Sexo</label>
+                    <div class="campo-radio">
+                    <label for="Feminino"><input id="Feminino" name="Sexo" type="radio" value="Feminino" required>Feminino</label>
+                    <label for="Masculino"><input id="Masculino" name="Sexo" type="radio" value="Masculino"     >Masculino</label>   
+                    </div>
                 </div>
 
-                <div class="campo-grupo3">
-                    <p>Nível de atividade fisíca</p>
-                    <label for="Nenhum"><input id="Nenhum" name="ATV" type="radio" value="Nenhum">Nenhum</label>
-                    <label for="Leve"><input id="Leve" name="ATV" type="radio" value="Leve">Leve</label>
-                    <label for="Moderada"><input id="Moderada" name="ATV" type="radio" value="Moderada">Moderada</label>
-                    <label for="Alta"><input id="Alta" name="ATV" type="radio" value="Alta">Alta</label>
+                <div class="campo-grupo2">
+                    <label>Nível de atividade fisíca</label>
+                        <div class="campo-radio">
+                        <label for="Nenhum"><input id="Nenhum" name="ATV" type="radio" value="Nenhum" required>Nenhum</label>
+                        <label for="Leve"><input id="Leve" name="ATV" type="radio" value="Leve" >Leve</label>
+                        <label for="Moderada"><input id="Moderada" name="ATV" type="radio" value="Moderada" >Moderada</label>
+                        <label for="Alta"><input id="Alta" name="ATV" type="radio" value="Alta" >Alta</label>
+                    </div>
                 </div>
 
-                <div class="campo-grupo4">
-                    <p>Objetivo pessoal</p>
-                    <label for="Emagrecimento"><input id="Emagrecimento" name="OBJ" type="radio" value="Emagrecimento">Emagrecimento</label>
-                    <label for="Manutenção"><input id="Manutenção" name="OBJ" type="radio" value="Manutenção">Manutenção</label>
-                    <label for="Ganho de massa"><input id="Ganho de massa" name="OBJ" type="radio" value="Ganho de massa">Ganho de massa</label> 
+                <div class="campo-grupo2">
+                    <label>Objetivo</label>
+                    <div class="campo-radio">
+                        <label for="Emagrecimento"><input id="Emagrecimento" name="OBJ" type="radio" value="Emagrecimento" required>Emagrecimento</label>
+                        <label for="Manutenção"><input id="Manutenção" name="OBJ" type="radio" value="Manutenção" >Manutenção</label>
+                        <label for="Ganho de massa"><input id="Ganho de massa" name="OBJ" type="radio" value="Ganho de massa" >Ganho de massa</label> 
+                    </div>
                 </div>
                 <div class="botoes">
-                    <button class="bntform" type="button" id="botao">Calcular</button>
-                    <button class="bntform" type="reset" id="botao">Limpar</button>
+                    <button class="bntform" type="submit" id="botao">Calcular</button>
                 </div> 
+                
             </form>
 
-
+            
             <div class="resposta">
-                <p id="resultadoimc"></p>
-                <p id="resultadotmb"></p>
-                <p id="resultadogetd"></p>
-                <p id="resultadoajuste"></p>
-                <p id="resultadomacrop"></p>
-        </div>   
+                <pre id="resultadoGeral"></pre>
+                <div class="btnresp">
+                    <button class="bntform" type="button" id="botaoreset">Limpar</button>
+                    <button class="bntform" type="button" id="botaobaixar" onclick="download()">Dowload</button>
+                </div>
+            </div>
         </div>
     </main>
     <footer>
@@ -68,6 +82,7 @@
     </footer>
     
     <script src="dadostest.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 </body>
 </html>

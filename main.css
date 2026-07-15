@@ -12,31 +12,58 @@ form{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 1px solid gray;
-    border-radius: 5px;
-    margin: 15px 15px 15px 15px;
-    padding: 30px 30px 30px 30px;
+    border: 1px solid rgba(128, 128, 128, 0.205);
+    border-radius: 15px;
+    margin: 13px;
+    padding: 10px 10px 10px 10px;
+    width: 450px;
     font-size: 18px;
     font-family: Franklin Gothic Medium;
+    background-color: rgba(243, 243, 243, 0.747);
 }
 
 .resposta{
-    display: flex;
+    display: none;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
-    border: 1px solid grey;
+    align-items: center;
+    border: none;
     border-radius: 5px;
     margin: 15px 15px 15px 15px;
-    padding: 30px 30px 30px 30px;
+    padding: 15px;
     font-size: 18px;
     font-family: Franklin Gothic Medium;
+    background-color: rgba(243, 243, 243, 0.747);
+}
+
+.resposta button{
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    font-family: Franklin Gothic Medium ;
+    border: none;
+    border-radius: 8px;
+    background-color: #5a75629c;
+    color: white;
+    cursor: pointer;
+}
+
+.btnresp{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+#resultadoGeral {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
 }
 
 .Formulario{
     width: 180px;
     height: 27px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .campo-grupo{
@@ -47,10 +74,9 @@ form{
     justify-content: center;
 }
 
-p{
+pre{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 5px 5px 5px 3px ;
 }
 
 .botoes{
@@ -59,4 +85,53 @@ p{
     align-items: center;
     margin: 20px 5px 5px 5px;
     gap: 15px;
+}
+
+#botao{
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    font-family: Franklin Gothic Medium ;
+    border: none;
+    border-radius: 8px;
+    background-color: #5A7562;
+    color: white;
+    cursor: pointer;
+}
+
+body{
+    background-color: rgb(198, 243, 177);
+}
+
+.campo-grupo2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px;
+}
+
+.campo-radio{
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.campo-radio label{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    cursor: pointer;
+}
+
+#resultadoGeral {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;                               
+    line-height: 1.4;                              
+    text-align: left;                              
+    display: flex;                         
 }

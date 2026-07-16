@@ -77,19 +77,19 @@ formulario.addEventListener('submit', function(event){
     
     function calculoIMC(peso, altura){
         let imc = peso / (altura * altura);
-        return imc
+        return imc;
     }   
 
     
     function calculoTMB(peso, altura, idade, sexo){
         altura = altura * 100
         let TMB;
-        if(sexo == "Feminino"){
+        if(sexo === "Feminino"){
             TMB = 447.593 + (9.247 * peso) + (3.098 * altura) - (4.330 * idade)
-            return TMB
+            return TMB;
         } else{
             TMB = 88.362 + (13.397 * peso) + (4.799 * altura) - (5.677 * idade)
-            return TMB
+            return TMB;
         }
     }
 
@@ -98,35 +98,35 @@ formulario.addEventListener('submit', function(event){
     function calculoGETD(atividade, TMB){
 
         let getd;
-        if(atividade == "Nenhum")
+        if(atividade === "Nenhum")
         {
         getd = TMB * 1.2;
-        return getd 
-        }else if(atividade == "Leve"){
+        return getd ;
+        }else if(atividade === "Leve"){
             getd = TMB * 1.375;
-            return getd 
-        }else if(atividade == "Moderada"){
+            return getd ;
+        }else if(atividade === "Moderada"){
             getd = TMB * 1.55;
-            return getd 
+            return getd; 
         }else{
             getd = TMB * 1.725;
-            return getd 
+            return getd ;
         }
     }
     
     function calculoAjuste(objetivo, valorGetd){
     
         let ajuste;
-        if(objetivo == "Emagrecimento")
+        if(objetivo === "Emagrecimento")
         {
             ajuste = valorGetd - 400;
-            return ajuste
-        } else if(objetivo == "Manutenção"){
+            return ajuste;
+        } else if(objetivo === "Manutenção"){
             ajuste = valorGetd ;
-            return ajuste
+            return ajuste;
         }else{
             ajuste = valorGetd + 300;
-            return ajuste
+            return ajuste;
         }
     }
 
@@ -135,13 +135,13 @@ formulario.addEventListener('submit', function(event){
         let proteina;
         let carboidrato;
         let gordura;
-        if(objetivo == "Emagrecimento")
+        if(objetivo === "Emagrecimento")
         {
             proteina = (valorAjuste * 0.25) / 4
             carboidrato = (valorAjuste * 0.50) / 4
             gordura = (valorAjuste  * 0.25) / 9
         
-        } else if(objetivo == "Manutenção"){
+        } else if(objetivo === "Manutenção"){
             proteina = (valorAjuste  * 0.25) / 4
             carboidrato = (valorAjuste  * 0.45) / 4
             gordura = (valorAjuste  * 0.30) / 9

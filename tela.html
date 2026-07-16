@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    <title>Calculadora Saudavel</title>
+    <title>NutriCalc</title>
 </head>
 <body>
     
     <main>
-        <h1 class="texttopo">Faça o cálculo do seu IMC</h1>
+        <h1 class="texttopo">NutriCalc</h1>
             <div class="blocopai">
             <form id="informacoes">
                 <div class="campo-grupo">
@@ -19,18 +19,18 @@
                     </div>
                     <div class="campo-individual">
                         <label for="Altura">Idade</label>
-                        <input class="Formulario" id="Idade" placeholder="Digite sua idade" required>
+                        <input class="Formulario" id="Idade" type="number" placeholder="Digite sua idade" required>
                     </div>
                 </div>
                 
                 <div class="campo-grupo">
                     <div class="campo-individual">
                         <label for="Peso">Peso</label>
-                        <input class="Formulario"  id="Peso" placeholder="Digite seu peso em kg" required>
+                        <input class="Formulario"  id="Peso" type="number" placeholder="Digite seu peso em kg" required>
                     </div>
                     <div class="campo-individual">
                         <label for="Altura">Altura</label>
-                        <input class="Formulario" id="Altura" placeholder="Digite sua altura em cm" required>
+                        <input class="Formulario" id="Altura" type="number" placeholder="Digite sua altura em cm" required>
                     </div>
                 </div>
 
@@ -72,7 +72,7 @@
                 <pre id="resultadoGeral"></pre>
                 <div class="btnresp">
                     <button class="bntform" type="button" id="botaoreset">Limpar</button>
-                    <button class="bntform" type="button" id="botaobaixar" onclick="download()">Dowload</button>
+                    <button class="bntform" type="button" id="botaobaixar" onclick="download()">Download</button>
                 </div>
             </div>
         </div>

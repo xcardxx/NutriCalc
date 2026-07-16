@@ -36,20 +36,6 @@ git clone https://github.com/xcardxx/NutriCalc.git
 
 2. Abra o arquivo `index.html` no navegador.
 
-## 📸 Demonstração
-
-### Tela inicial
-
-![Tela inicial](assets/TELA1.png)
-
-### Resultado
-
-![Resultado](assets/TELA2.png)
-
-### Relatório em PDF
-
-![Relatório PDF](assets/RELATORIOPDF.png)
-
 ## Objetivo
 
 Este projeto foi desenvolvido com o objetivo de praticar HTML, CSS e JavaScript através da construção de uma aplicação completa, integrando lógica de programação, manipulação do DOM e geração de arquivos PDF.
